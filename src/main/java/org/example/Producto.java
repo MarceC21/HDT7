@@ -63,9 +63,13 @@ public class Producto implements Comparable <Producto> {
 
     @Override
     public int compareTo(Producto otroProducto) {
-        // Comparar productos por su SKU
+        if (this.sku == null || otroProducto.sku == null) {
+            throw new IllegalArgumentException("El SKU no puede ser nulo");
+        }
         return this.sku.compareTo(otroProducto.sku);
     }
+    
+
 
     @Override
     public String toString() {

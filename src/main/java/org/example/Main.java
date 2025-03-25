@@ -30,8 +30,8 @@ public class Main {
             }
 
             //Mostrar los productos en orden (inOrden)
-            System.out.println("Productos en orden (inOrden):");
-            bst.inOrden();
+            //System.out.println("Productos en orden (inOrden):");
+            //bst.inOrden();
 
             int op;
             do {
@@ -51,6 +51,7 @@ public class Main {
                     Producto productoEncontrado = bst.buscar(new Producto(skuABuscar, 0.0, 0.0, "", ""));
                     if (productoEncontrado != null) {
                         System.out.println("Producto encontrado: " + productoEncontrado);
+                        System.out.println("Precio más bajo para ese producto: $" + productoEncontrado.getPriceCurrent());
                     } else {
                         System.out.println("Producto no encontrado.");
                     }

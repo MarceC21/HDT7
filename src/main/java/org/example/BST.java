@@ -3,6 +3,8 @@
  * Algoritmos y Estructuras de Datos
  * Ing. Douglas Barrios / Aux: Cristian Túnchez
  * @author: Marcela Castillo y Andrés Ismalej
+ * Esta clase se contruyo a partir del ejemplo del libro JavaStructures y la guia de ChatGPT
+ * OpenAI.(2025).ChatGPT (versión del 23 de marzo)[Módelo de Lenguaje de gran tamaño] https://chatgpt.com/share/67e32454-67ac-8007-9c05-8d728de9e299
 */
 package org.example;
 
@@ -47,20 +49,27 @@ class BST<E extends Comparable<E>> {
     }
 
     /** 
-     * Busca un valor (Producto) en el árbol.
+     * Busca un valor en el árbol.
      * @return el valor si se encuentra, null si no está presente.
      */
     public E buscar(E value) {
         return buscarPro(root, value);
     }
-
+    
     private E buscarPro(Nodo<E> root, E value) {
-        if (root == null || root.value.equals(value)) {
-            return root != null ? root.value : null;
+        if (root == null) {
+            return null;
         }
-        return (value.compareTo(root.value) < 0) 
-            ? buscarPro(root.izquierdo, value) 
-            : buscarPro(root.derecho, value);
+        
+        int comp = value.compareTo(root.value);
+    
+        if (comp == 0) {
+            return root.value;  // Producto encontrado
+        } else if (comp < 0) {
+            return buscarPro(root.izquierdo, value);
+        } else {
+            return buscarPro(root.derecho, value);
+        }
     }
 
 
@@ -107,7 +116,6 @@ class BST<E extends Comparable<E>> {
         return root;
     }
 
-    
 
     /** 
      * Recorrido inorden (izquierda - raíz - derecha).
@@ -124,7 +132,5 @@ class BST<E extends Comparable<E>> {
             inOrdenRec(root.derecho);
         }
     }
-
-
     
 }
