@@ -6,7 +6,7 @@
 */
 package org.example;
 
-public class Producto {
+public class Producto implements Comparable <Producto> {
     private String sku;
     private double priceRetail;
     private double priceCurrent;
@@ -59,6 +59,12 @@ public class Producto {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    @Override
+    public int compareTo(Producto otroProducto) {
+        // Comparar productos por su SKU
+        return this.sku.compareTo(otroProducto.sku);
     }
 
     @Override
