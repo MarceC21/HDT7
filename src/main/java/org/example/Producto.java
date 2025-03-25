@@ -1,13 +1,19 @@
+/**
+ * Universidad del Valle de Guatemala
+ * Algoritmos y Estructuras de Datos
+ * Ing. Douglas Barrios / Aux: Cristian Túnchez
+ * @author: Marcela Castillo y Andrés Ismalej
+*/
 package org.example;
 
 public class Producto {
-    private int sku;
+    private String sku;
     private double priceRetail;
     private double priceCurrent;
     private String name;
     private String category;
     
-    public Producto(int sku, double priceRetail, double priceCurrent, String name, String category) {
+    public Producto(String sku, double priceRetail, double priceCurrent, String name, String category) {
         this.sku = sku;
         this.priceRetail = priceRetail;
         this.priceCurrent = priceCurrent;
@@ -15,11 +21,11 @@ public class Producto {
         this.category = category;
     }
 
-    public int getSku() {
+    public String getSku() {
         return sku;
     }
 
-    public void setSku(int sku) {
+    public void setSku(String sku) {
         this.sku = sku;
     }
 
